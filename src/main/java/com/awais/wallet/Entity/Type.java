@@ -1,5 +1,5 @@
 package com.awais.wallet.Entity;
 
-public enum TransactionType {
+public enum Type {
     DEPOSIT, PURCHASE, EARNING
 }

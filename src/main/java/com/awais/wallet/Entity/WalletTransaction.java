@@ -11,7 +11,7 @@ import java.util.UUID;
 @Entity
 @Getter
 @Setter
-@Table(name = "wallet_transaction")
+@Table(name = "wallet_transactions")
 public class WalletTransaction {
 
     @Id
@@ -24,7 +24,7 @@ public class WalletTransaction {
 
 
     @Column(name = "type")
-    private TransactionType type;
+    private Type type;
 
     @Column(name = "amount")
     private float amount;
