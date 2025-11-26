@@ -6,7 +6,7 @@ import java.util.UUID;
 
 public record WalletTransactionRequestDTO(
         UUID wallet_id,
-        Type type,
+        Type transaction_type,
         float amount,
         float balance_before,
         float balance_after,

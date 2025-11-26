@@ -10,7 +10,7 @@ import java.util.UUID;
 public record WalletTransactionResponseDTO(
         UUID id,
         Wallet wallet,
-        Type type,
+        Type transaction_type,
         float amount,
         float balance_before,
         float balance_after,

@@ -36,20 +36,24 @@ public class WalletTransactionService {
 
 
         WalletTransaction walletTransaction = new WalletTransaction();
+
         walletTransaction.setWallet(wallet);
-        walletTransaction.setType(walletTransactionRequestDTO.type());
+        walletTransaction.setTransaction_type(walletTransactionRequestDTO.transaction_type());
         walletTransaction.setAmount(walletTransactionRequestDTO.amount());
         walletTransaction.setBalance_before(wallet.getBalance());
         walletTransaction.setBalance_after(wallet.getBalance() + walletTransactionRequestDTO.amount());
         walletTransaction.setOrders(order);
+        wallet.setBalance(wallet.getBalance() + walletTransactionRequestDTO.amount());
+
 
         WalletTransaction saved = walletTransactionRespository.save(walletTransaction);
+        walletRepository.save(wallet);
 
 
         return new WalletTransactionResponseDTO(
                 saved.getId(),
                 saved.getWallet(),
-                saved.getType(),
+                saved.getTransaction_type(),
                 saved.getAmount(),
                 saved.getBalance_before(),
                 saved.getBalance_after(),
@@ -57,4 +61,6 @@ public class WalletTransactionService {
                 saved.getCreated_at()
         );
     }
+
+
 }

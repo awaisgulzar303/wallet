@@ -22,9 +22,9 @@ public class WalletTransaction {
     @JoinColumn(name = "wallet_id", referencedColumnName = "id")
     private Wallet wallet;
 
-
-    @Column(name = "type")
-    private Type type;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "transaction_type")
+    private Type transaction_type;
 
     @Column(name = "amount")
     private float amount;
